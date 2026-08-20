@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brash Digital | Google Ads for Small Business</title>
+<meta name="description" content="Google Ads setup and management built for small businesses. Stop wasting budget — start getting results that grow your business.">
+<meta property="og:title" content="Brash Digital | Google Ads for Small Business">
+<meta property="og:description" content="Google Ads setup and management built for small businesses. Stop wasting budget — start getting results that grow your business.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://paulbrash.github.io/google-ads-for-SMEs/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ── */
+:root {
+  --white:    #F8F7F4;
+  --surface:  #EEECEA;
+  --rule:     #DEDAD6;
+  --ink:      #1A1A1A;
+  --mid:      #6B6860;
+  --faint:    #A8A49F;
+  --blue:     #1a6fff;
+  --blue-light: rgba(26,111,255,.08);
+  --blue-mid:   rgba(26,111,255,.15);
+  --serif:    'Fraunces', Georgia, serif;
+  --sans:     'Inter', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--white);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 5vw;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo img {
+  max-height: 80px;
+  width: auto;
+  display: block;
+}
+.nav-logo-text {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--ink);
+  text-decoration: none;
+  display: none;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-phone {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-phone:hover { color: var(--ink); }
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 20px;
+  border-radius: 6px;
+  background: var(--blue);
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: .01em;
+  transition: opacity .2s, transform .15s;
+}
+.nav-cta:hover { opacity: .88; transform: translateY(-1px); }
+
+@media (max-width: 640px) { .nav-phone { display: none; } }
+
+/* ── HERO ── */
+.hero {
+  padding: 80px 5vw 96px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 28px;
+}
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--blue);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 32px;
+  max-width: 780px;
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  color: var(--mid);
+  line-height: 1.75;
+  max-width: 520px;
+  margin-bottom: 40px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 6px;
+  background: var(--blue);
+  color: #fff;
+  font-size: .95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity .2s, transform .15s;
+}
+.btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+
+.btn-text {
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--mid);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+  transition: color .2s, border-color .2s;
+}
+.btn-text:hover { color: var(--ink); border-color: var(--ink); }
+
+/* ── DIVIDER ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+}
+
+/* ── PROBLEM STRIP ── */
+.problem-strip {
+  padding: 72px 5vw;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.problem-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-bottom: 64px;
+}
+
+.problem-intro h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+.problem-intro h2 em { font-style: italic; }
+
+.problem-intro-right {
+  padding-top: 8px;
+}
+.problem-intro-right p {
+  font-size: .97rem;
+  color: var(--mid);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.problem-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.problem-item {
+  background: var(--white);
+  padding: 28px 26px;
+}
+
+.problem-num {
+  font-family: var(--serif);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  color: var(--faint);
+  margin-bottom: 14px;
+}
+
+.problem-item h3 {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.problem-item p {
+  font-size: .83rem;
+  color: var(--mid);
+  line-height: 1.65;
+}
+
+/* ── WHAT WE DO ── */
+.services {
+  background: var(--surface);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 80px 5vw;
+}
+
+.services-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.services-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 64px;
+  align-items: start;
+  margin-bottom: 56px;
+}
+
+.services-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+.services-header h2 em { font-style: italic; }
+
+.services-header p {
+  font-size: .97rem;
+  color: var(--mid);
+  line-height: 1.8;
+  padding-top: 6px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 28px 26px;
+  transition: border-color .2s;
+}
+.service-card:hover { border-color: #C0C0BB; }
+
+.service-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--blue-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.service-card h3 {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.service-card p {
+  font-size: .83rem;
+  color: var(--mid);
+  line-height: 1.65;
+}
+
+.service-card.additional {
+  border-style: dashed;
+  background: transparent;
+}
+.service-card.additional .service-tag {
+  display: inline-block;
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--blue-light);
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin-bottom: 14px;
+}
+
+/* ── WHAT'S INCLUDED ── */
+.included {
+  padding: 80px 5vw;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.included-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 64px;
+  align-items: start;
+  margin-bottom: 52px;
+}
+
+.included-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+.included-header h2 em { font-style: italic; }
+
+.included-header p {
+  font-size: .97rem;
+  color: var(--mid);
+  line-height: 1.8;
+  padding-top: 6px;
+}
+
+.included-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.included-item {
+  background: var(--white);
+  padding: 24px 26px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.included-check {
+  flex-shrink: 0;
+  margin-top: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--blue-light);
+  border: 1px solid var(--blue-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.included-item h4 {
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.included-item p {
+  font-size: .8rem;
+  color: var(--mid);
+  line-height: 1.6;
+}
+
+/* ── FIT ── */
+.fit {
+  background: var(--surface);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 80px 5vw;
+}
+
+.fit-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.fit-inner h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 300;
+  letter-spacing: -.02em;
+  margin-bottom: 40px;
+}
+.fit-inner h2 em { font-style: italic; }
+
+.fit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.fit-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 32px 28px;
+}
+
+.fit-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.fit-card.yes .fit-card-title { color: #1a7f4b; }
+.fit-card.no  .fit-card-title { color: #b5372a; }
+
+.fit-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.fit-items li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: .87rem;
+  color: var(--mid);
+  line-height: 1.55;
+}
+
+.fit-dot {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-top: 6px;
+}
+.fit-card.yes .fit-dot { background: #1a7f4b; }
+.fit-card.no  .fit-dot { background: #b5372a; }
+
+/* ── PROCESS ── */
+.process {
+  padding: 80px 5vw;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.process h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 300;
+  letter-spacing: -.02em;
+  margin-bottom: 52px;
+}
+.process h2 em { font-style: italic; }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.process-step {
+  padding: 32px 28px;
+  border-right: 1px solid var(--rule);
+  position: relative;
+}
+.process-step:last-child { border-right: none; }
+
+.step-n {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--rule);
+  line-height: 1;
+  margin-bottom: 18px;
+  letter-spacing: -.04em;
+}
+
+.process-step h3 {
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.process-step p {
+  font-size: .8rem;
+  color: var(--mid);
+  line-height: 1.65;
+}
+
+/* ── FAQ ── */
+.faq {
+  background: var(--surface);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 80px 5vw;
+}
+
+.faq-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.faq-inner h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 300;
+  letter-spacing: -.02em;
+  margin-bottom: 40px;
+}
+.faq-inner h2 em { font-style: italic; }
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--rule);
+}
+
+.faq-item { border-bottom: 1px solid var(--rule); }
+
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--sans);
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--ink);
+  transition: color .2s;
+}
+.faq-q:hover { color: var(--blue); }
+.faq-item.open .faq-q { color: var(--blue); }
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mid);
+  transition: transform .25s, border-color .2s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); border-color: var(--blue); color: var(--blue); }
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease, padding .3s ease;
+  font-size: .88rem;
+  color: var(--mid);
+  line-height: 1.75;
+  padding: 0;
+}
+.faq-item.open .faq-a { max-height: 300px; padding-bottom: 20px; }
+
+/* ── CONTACT ── */
+.contact {
+  padding: 80px 5vw 100px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-left h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+.contact-left h2 em { font-style: italic; }
+
+.contact-left p {
+  font-size: .95rem;
+  color: var(--mid);
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+.contact-promises {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-promise {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: .85rem;
+  color: var(--mid);
+  line-height: 1.5;
+}
+
+.promise-check {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--blue);
+}
+
+/* FORM */
+.form-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 40px 36px;
+}
+
+.form-card h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+
+.form-group { margin-bottom: 16px; }
+
+.form-group label {
+  display: block;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 11px 14px;
+  font-family: var(--sans);
+  font-size: .88rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .2s;
+  resize: vertical;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--faint); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--blue); }
+.form-group select option { background: var(--white); }
+.form-group textarea { min-height: 100px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  background: var(--blue);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: .92rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+  letter-spacing: .01em;
+  transition: opacity .2s, transform .15s;
+}
+.btn-submit:hover { opacity: .88; transform: translateY(-1px); }
+.btn-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+.form-msg {
+  display: none;
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: .85rem;
+  text-align: center;
+}
+.form-msg.success { display: block; background: #edf7f1; border: 1px solid #b0ddc4; color: #1a7f4b; }
+.form-msg.error   { display: block; background: #fdf0ef; border: 1px solid #f0bbb8; color: #b5372a; }
+
+/* ── AUDIT CROSS-SELL ── */
+.crosssell {
+  border-top: 1px solid var(--rule);
+  padding: 28px 5vw;
+  background: var(--white);
+}
+
+.crosssell-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.crosssell p {
+  font-size: .87rem;
+  color: var(--mid);
+  line-height: 1.5;
+}
+.crosssell strong { color: var(--ink); font-weight: 600; }
+
+.crosssell-link {
+  white-space: nowrap;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+  border: 1px solid var(--blue-mid);
+  border-radius: 6px;
+  padding: 8px 16px;
+  transition: background .15s;
+}
+.crosssell-link:hover { background: var(--blue-light); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 24px 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-size: .78rem;
+  color: var(--faint);
+}
+
+.footer-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+  border-bottom: 1px solid var(--blue-mid);
+  padding-bottom: 1px;
+  transition: border-color .2s;
+}
+.footer-cta:hover { border-color: var(--blue); }
+
+/* ── SCROLL FADE ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .problem-intro,
+  .services-header,
+  .included-header,
+  .contact-inner { grid-template-columns: 1fr; gap: 32px; }
+
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .problem-list  { grid-template-columns: 1fr 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .process-step  { border-right: none; border-bottom: 1px solid var(--rule); }
+  .process-step:last-child { border-bottom: none; }
+  .fit-grid      { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 52px 5vw 72px; }
+  .services-grid,
+  .problem-list,
+  .included-list,
+  .process-steps { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+  footer { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="brash-logo-clear.png" alt="Brash Digital" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nav-logo-text">Brash Digital</span>
+  </a>
+  <div class="nav-right">
+    <a class="nav-phone" href="tel:+64204708086">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 2.5C2 2.5 3 1 4.5 1c.5 0 1 .3 1.3.8l1 1.8c.3.5.2 1.1-.2 1.5L5.8 6c.5 1 1.2 1.8 2.2 2.2l.9-.8c.4-.4 1-.5 1.5-.2l1.8 1c.5.3.8.8.8 1.3 0 1.5-1.5 2.5-1.5 2.5C4 13.5.5 2.5 2 2.5z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      +64 20 470 8086
+    </a>
+    <a class="nav-cta" href="#contact">Get Started →</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <p class="hero-tag">Google Ads for Small Business</p>
+  <h1>Is your Google Ads budget <em>actually</em> working?</h1>
+  <p class="hero-sub">Most small business Google Ads accounts waste between a quarter and a third of their budget — not through bad luck, but through poor setup and no ongoing management. We fix that.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#contact">Talk to us →</a>
+    <a class="btn-text" href="#what-we-do">See what's involved ↓</a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── PROBLEM ── -->
+<div class="problem-strip reveal">
+  <div class="problem-intro">
+    <h2>Why most small business Google Ads <em>don't deliver</em></h2>
+    <div class="problem-intro-right">
+      <p>Google Ads is genuinely effective for small businesses — but only when it's set up correctly and managed consistently. Without that, it quietly drains budget while delivering little in return.</p>
+      <p>These are the issues we see in almost every account we look at.</p>
+    </div>
+  </div>
+  <div class="problem-list">
+    <div class="problem-item">
+      <div class="problem-num">01</div>
+      <h3>Set up once, never touched</h3>
+      <p>Without regular optimisation, performance degrades and budget leaks into searches that will never convert.</p>
+    </div>
+    <div class="problem-item">
+      <div class="problem-num">02</div>
+      <h3>Targeting the wrong people</h3>
+      <p>Broad keyword settings mean paying for clicks from people who were never going to become customers.</p>
+    </div>
+    <div class="problem-item">
+      <div class="problem-num">03</div>
+      <h3>Ads that don't convert</h3>
+      <p>Generic ad copy that doesn't match what searchers actually need drives clicks — but not enquiries.</p>
+    </div>
+    <div class="problem-item">
+      <div class="problem-num">04</div>
+      <h3>Flying blind on performance</h3>
+      <p>Without clear data on what's working, it's impossible to know which campaigns are driving real outcomes.</p>
+    </div>
+    <div class="problem-item">
+      <div class="problem-num">05</div>
+      <h3>Following Google's advice</h3>
+      <p>Google's own recommendations are designed to increase spend, not efficiency. Following them uncritically often makes things worse.</p>
+    </div>
+    <div class="problem-item">
+      <div class="problem-num">06</div>
+      <h3>No time to learn it properly</h3>
+      <p>Google Ads changes constantly. Running a business leaves little time to master it — and half-measures often do more harm than good.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ── SERVICES ── -->
+<div class="services" id="what-we-do">
+  <div class="services-inner">
+    <div class="services-header reveal">
+      <h2>What we <em>do for you</em></h2>
+      <p>End-to-end Google Ads management — from building campaigns correctly from the ground up, to the ongoing work that keeps improving results over time.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#1a6fff" stroke-width="1.5"/><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#1a6fff" stroke-width="1.5"/><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#1a6fff" stroke-width="1.5"/><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#1a6fff" stroke-width="1.5" opacity=".35"/></svg>
+        </div>
+        <h3>Campaign Setup & Account Build</h3>
+        <p>A properly structured account built around your goals — keyword research, campaign architecture, ad groups and copy, done right the first time.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 1l1.6 3.3 3.6.5-2.6 2.6.6 3.6L9 9.2l-3.2 1.8.6-3.6L4 5l3.6-.5z" stroke="#1a6fff" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Keyword Research & Strategy</h3>
+        <p>Finding the searches your customers actually use — and critically, the ones to exclude — so budget goes to traffic that converts.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 16V7M13 16V3M5 16v-3" stroke="#1a6fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Ongoing Optimisation</h3>
+        <p>Weekly account reviews, bid adjustments and search term analysis — keeping campaigns improving every month.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M16 12a1.5 1.5 0 01-1.5 1.5H5l-3 3V3A1.5 1.5 0 013.5 1.5H14.5A1.5 1.5 0 0116 3z" stroke="#1a6fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Monthly Reporting</h3>
+        <p>Plain-English summaries of what's working, what's changed and what we're focused on next — no jargon, no data dumps.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h12M9 3l6 6-6 6" stroke="#1a6fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Ad Copy & Creative</h3>
+        <p>Compelling ads written for your specific audience, tested and refined over time to improve click-through and conversion rates.</p>
+      </div>
+      <div class="service-card additional reveal">
+        <span class="service-tag">Additional Service</span>
+        <h3>Conversion Tracking</h3>
+        <p>Accurately tracking calls, forms and purchases requires GA4 and Google Tag Manager working together — this is scoped separately, as it's rarely simple to set up correctly.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── INCLUDED ── -->
+<div class="included reveal">
+  <div class="included-header">
+    <h2>Straightforward fees, <em>no hidden costs</em></h2>
+    <p>Clear, transparent pricing. No setup fees buried in small print, no unexpected add-ons. Your ad spend goes directly to Google and is always separate from our management fee.</p>
+  </div>
+  <div class="included-list">
+    <div class="included-item">
+      <div class="included-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#1a6fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div>
+        <h4>Full campaign build</h4>
+        <p>Account structure, keyword research, ad groups and copy — built to your brief, from scratch.</p>
+      </div>
+    </div>
+    <div class="included-item">
+      <div class="included-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#1a6fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div>
+        <h4>Weekly optimisation</h4>
+        <p>Bid adjustments, search term reviews and negative keyword management as standard.</p>
+      </div>
+    </div>
+    <div class="included-item">
+      <div class="included-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#1a6fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div>
+        <h4>Monthly plain-English reports</h4>
+        <p>Clear summaries of performance sent every month — without fail.</p>
+      </div>
+    </div>
+    <div class="included-item">
+      <div class="included-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#1a6fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div>
+        <h4>Direct access to your account manager</h4>
+        <p>A real person who knows your account — not a support queue.</p>
+      </div>
+    </div>
+    <div class="included-item">
+      <div class="included-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#1a6fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div>
+        <h4>No lock-in contracts</h4>
+        <p>Month-to-month with 30 days' notice. We earn your continued business through results.</p>
+      </div>
+    </div>
+    <div class="included-item">
+      <div class="included-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#1a6fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div>
+        <h4>You own your account</h4>
+        <p>Always in your name. If you ever move on, you take everything with you.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ── FIT ── -->
+<div class="fit reveal">
+  <div class="fit-inner">
+    <h2>A good fit — <em>and when it isn't</em></h2>
+    <div class="fit-grid">
+      <div class="fit-card yes">
+        <div class="fit-card-title">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="#1a7f4b" stroke-width="1.4"/><path d="M4 7l2 2 4-4" stroke="#1a7f4b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Works well when…
+        </div>
+        <ul class="fit-items">
+          <li><span class="fit-dot"></span>You have a product or service with clear search demand</li>
+          <li><span class="fit-dot"></span>Your monthly Google Ads budget is $500 or more</li>
+          <li><span class="fit-dot"></span>You can measure success — leads, sales, calls</li>
+          <li><span class="fit-dot"></span>You've run ads before and feel they should be doing more</li>
+          <li><span class="fit-dot"></span>You're starting fresh and want to get it right first time</li>
+        </ul>
+      </div>
+      <div class="fit-card no">
+        <div class="fit-card-title">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="#b5372a" stroke-width="1.4"/><path d="M4.5 4.5l5 5M9.5 4.5l-5 5" stroke="#b5372a" stroke-width="1.4" stroke-linecap="round"/></svg>
+          Not the right fit when…
+        </div>
+        <ul class="fit-items">
+          <li><span class="fit-dot"></span>Your budget is under $500/month</li>
+          <li><span class="fit-dot"></span>You need guaranteed results — no one can honestly promise those</li>
+          <li><span class="fit-dot"></span>You need leads tomorrow — proper optimisation takes weeks</li>
+          <li><span class="fit-dot"></span>Your product or service has little search demand</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ── PROCESS ── -->
+<div class="process reveal">
+  <h2>Up and running <em>in days</em></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-n">01</div>
+      <h3>Free Consultation</h3>
+      <p>A 30-minute conversation about your business, goals and current ad activity. No commitment required.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-n">02</div>
+      <h3>Strategy & Quote</h3>
+      <p>We'll outline our approach and give you a clear, transparent quote. No surprises.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-n">03</div>
+      <h3>Build & Launch</h3>
+      <p>Campaigns built and ads live — typically within 5–7 business days of getting started.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-n">04</div>
+      <h3>Manage & Improve</h3>
+      <p>Ongoing weekly management with monthly reporting — continuously improving as your account matures.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ── FAQ ── -->
+<div class="faq">
+  <div class="faq-inner reveal">
+    <h2><em>Common</em> questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How much does management cost?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></button>
+        <div class="faq-a">Management fees depend on your account size and complexity. We'll give you a clear quote after our initial conversation. Get in touch and we'll be specific.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Do I need an existing Google Ads account?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></button>
+        <div class="faq-a">No — we can build one from scratch. If you already have an account we'll review the existing structure and decide whether to rebuild or work with what's there. The account will always be in your name.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How long before I see results?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></button>
+        <div class="faq-a">Campaigns can be live within a week. Initial results come quickly — but proper optimisation builds over the first 2–3 months as the account matures. We'll set realistic expectations for your situation upfront.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">What's the minimum monthly ad budget?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></button>
+        <div class="faq-a">As a guide, $500/month is a sensible minimum — below that there's typically not enough data to optimise effectively. The right budget depends on your industry and goals, and we'll give you an honest view. Your ad spend goes directly to Google, separate from our fee.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Are there lock-in contracts?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></button>
+        <div class="faq-a">No lock-in. We work month-to-month with 30 days' notice to cancel. We'd rather earn your business through results than hold you to a contract.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">I'm already running ads myself — can you help?<div class="faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2v6M2 5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></button>
+        <div class="faq-a">Yes — this is one of the most common situations we work with. We'll review your existing account, identify what's holding performance back, and take over management. Most self-managed accounts have significant room for improvement.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTACT ── -->
+<div class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <h2>Let's talk about <em>your Google Ads</em></h2>
+      <p>Fill in the form and we'll be in touch within one business day to arrange a 30-minute consultation — no obligation, no sales pressure.</p>
+      <div class="contact-promises">
+        <div class="contact-promise">
+          <svg class="promise-check" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7l3 3 6-6" stroke="#1a6fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          A 30-minute consultation, no commitment required
+        </div>
+        <div class="contact-promise">
+          <svg class="promise-check" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7l3 3 6-6" stroke="#1a6fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          A clear, transparent quote before any work begins
+        </div>
+        <div class="contact-promise">
+          <svg class="promise-check" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7l3 3 6-6" stroke="#1a6fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Honest advice — even if Google Ads isn't the right fit for you
+        </div>
+        <div class="contact-promise">
+          <svg class="promise-check" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7l3 3 6-6" stroke="#1a6fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Response within one business day
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card reveal">
+      <h3>Send a message</h3>
+      <form id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="jane@business.com" required autocomplete="email">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--faint)">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="+64 21 000 0000" autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label for="business">Business / website</label>
+            <input type="text" id="business" name="business" placeholder="mybusiness.com" autocomplete="organization">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="spend">Approximate monthly ad budget</label>
+          <select id="spend" name="spend">
+            <option value="" disabled selected>Select a range</option>
+            <option>Under $500/month</option>
+            <option>$500 – $2,000/month</option>
+            <option>$2,000 – $5,000/month</option>
+            <option>$5,000+/month</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="situation">Current situation</label>
+          <select id="situation" name="situation">
+            <option value="" disabled selected>Choose one</option>
+            <option>Starting fresh — no Google Ads account yet</option>
+            <option>Running ads myself and want help</option>
+            <option>Currently with an agency and looking to switch</option>
+            <option>Ads are paused and I want to restart</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Anything else?</label>
+          <textarea id="message" name="message" placeholder="Tell us a bit about your business and what you're hoping to achieve (optional)"></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submit-btn">Send Message →</button>
+      </form>
+      <div class="form-msg" id="form-success">✓ Message received — we'll be in touch within one business day.</div>
+      <div class="form-msg" id="form-error">Something went wrong. Please email us at <a href="mailto:paulbrash1@gmail.com" style="color:#b5372a;">paulbrash1@gmail.com</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── AUDIT CROSS-SELL ── -->
+<div class="crosssell">
+  <div class="crosssell-inner">
+    <p>Prefer to manage your own Google Ads and just need guidance? <strong>Read about our account audit service.</strong></p>
+    <a class="crosssell-link" href="https://paulbrash.github.io/google-ads-audits/">Google Ads Audits →</a>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span class="footer-copy">Brash Digital · Google Ads for Small Business</span>
+  <a class="footer-cta" href="#contact">Get started →</a>
+</footer>
+
+<script>
+/* ── FAQ ── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item   = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+/* ── CONTACT FORM ── */
+const form    = document.getElementById('contact-form');
+const btn     = document.getElementById('submit-btn');
+const success = document.getElementById('form-success');
+const error   = document.getElementById('form-error');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  btn.disabled    = true;
+  btn.textContent = 'Sending…';
+  success.style.display = 'none';
+  error.style.display   = 'none';
+
+  try {
+    const res = await fetch('https://formspree.io/f/xoeakwda', {
+      method:  'POST',
+      body:    new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.reset();
+      success.classList.add('success');
+      success.style.display = 'block';
+      btn.textContent = 'Sent ✓';
+    } else {
+      throw new Error();
+    }
+  } catch {
+    error.classList.add('error');
+    error.style.display = 'block';
+    btn.disabled    = false;
+    btn.textContent = 'Send Message →';
+  }
+});
+
+/* ── SCROLL REVEAL ── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
